@@ -2,9 +2,7 @@
 
 public class GameSquareExample
 {
-    public string Question { get; set; } = "";
-
-    public string Anwear { get; set;} = "";
+    public Question Question { get; set; }
 
     public uint DefaultTimeForAnswerInSecond { get; set; }
 }

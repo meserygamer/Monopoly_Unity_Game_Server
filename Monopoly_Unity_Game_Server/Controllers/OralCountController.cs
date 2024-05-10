@@ -22,7 +22,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample GenerateExampleWithSingleAction()
         {
             Question question = _singleActionQuestionFactory.GetQuestion();
-            return new GameSquareExample() { Question = question.QuestionText, Anwear = question.Answer, DefaultTimeForAnswerInSecond = 10 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 10 };
         }
 
         [HttpGet]
@@ -30,7 +30,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample GenerateExampleWithDoubleAction()
         {
             Question question = _doubleActionQuestionFactory.GetQuestion();
-            return new GameSquareExample() { Question = question.QuestionText, Anwear = question.Answer, DefaultTimeForAnswerInSecond = 18 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 18 };
         }
     }
 }

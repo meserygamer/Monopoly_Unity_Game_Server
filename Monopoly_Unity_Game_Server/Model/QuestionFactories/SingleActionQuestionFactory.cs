@@ -19,7 +19,7 @@ public class SingleActionQuestionFactory : IQuestionFactory
     public Question GetQuestion()
     {
         Example example = GetExample();
-        return new Question() { QuestionText = example.ExampleInString(), Answer = example.GetExampleResult() };
+        return new Question() { QuestionText = example.ExampleInString(), Answers = new string[] {example.GetExampleResult()} };
     }
 
     public Example GetExample()
