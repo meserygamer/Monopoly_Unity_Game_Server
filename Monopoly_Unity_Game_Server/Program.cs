@@ -8,6 +8,11 @@ namespace Monopoly_Unity_Game_Server
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            builder.Services.AddSingleton<Random>();
+            builder.Services.AddSingleton<SingleActionQuestionFactory>();
+            builder.Services.AddSingleton<DoubleActionQuestionFactory>();
+
             builder.Services.AddCors();
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();

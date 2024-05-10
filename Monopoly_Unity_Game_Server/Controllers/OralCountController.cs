@@ -6,12 +6,31 @@ namespace Monopoly_Unity_Game_Server.Controllers
     [Route("OralCount/")]
     public class OralCountController : Controller
     {
+        public OralCountController(SingleActionQuestionFactory singleActionQuestionFactory, DoubleActionQuestionFactory doubleActionQuestionFactory)
+        {
+            _singleActionQuestionFactory = singleActionQuestionFactory;
+            _doubleActionQuestionFactory = doubleActionQuestionFactory;
+        }
+
+
+        private SingleActionQuestionFactory _singleActionQuestionFactory;
+        private DoubleActionQuestionFactory _doubleActionQuestionFactory;
+
+
         [HttpGet]
         [Route("ExampleWithSingleAction")]
         public GameSquareExample GenerateExampleWithSingleAction()
         {
-            
-            return new GameSquareExample();
+            Question question = _singleActionQuestionFactory.GetQuestion();
+            return new GameSquareExample() { Question = question.QuestionText, Anwear = question.Answer, DefaultTimeForAnswerInSecond = 10 };
+        }
+
+        [HttpGet]
+        [Route("ExampleWithDoubleAction")]
+        public GameSquareExample GenerateExampleWithDoubleAction()
+        {
+            Question question = _doubleActionQuestionFactory.GetQuestion();
+            return new GameSquareExample() { Question = question.QuestionText, Anwear = question.Answer, DefaultTimeForAnswerInSecond = 18 };
         }
     }
 }
