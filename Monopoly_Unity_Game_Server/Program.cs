@@ -21,6 +21,7 @@ namespace Monopoly_Unity_Game_Server
             builder.Services.AddSingleton<CalculationArea_2>();
             builder.Services.AddSingleton<CalculationArea_3>();
             builder.Services.AddSingleton<DegreeWithNaturalExponentFactory>();
+            builder.Services.AddSingleton<PropertiesOfDegreesFactory>();
 
             builder.Services.AddCors();
             builder.Services.AddControllers();

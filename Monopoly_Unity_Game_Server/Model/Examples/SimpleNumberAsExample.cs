@@ -1,17 +1,20 @@
 ﻿namespace Monopoly_Unity_Game_Server;
 
-public class SimpleNumberAsExample : Example
+public class UserExample : Example
 {
-    public SimpleNumberAsExample(double number)
+    public UserExample(double answer, string exampleInString)
     {
-        _number = number;
+        _answer = answer;
+        _exampleInString = exampleInString;
     }
 
 
-    private double _number;
+    private double _answer;
+
+    private string _exampleInString;
 
 
-    public override string GetExampleResult() => _number.ToString();
+    public override string GetExampleResult() => _answer.ToString();
 
-    public override string ExampleInString() => _number.ToString();
+    public override string ExampleInString() => _exampleInString;
 }
