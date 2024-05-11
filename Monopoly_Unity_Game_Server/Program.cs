@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using Monopoly_Unity_Game_Server.Model;
 using Monopoly_Unity_Game_Server.Model.QuestionFactories;
 using Monopoly_Unity_Game_Server.Model.QuestionFactories.DegreeQuestion;
+using Monopoly_Unity_Game_Server.Model.QuestionFactories.RootQuestion;
 
 namespace Monopoly_Unity_Game_Server
 {
@@ -23,6 +24,7 @@ namespace Monopoly_Unity_Game_Server
             builder.Services.AddSingleton<DegreeWithNaturalExponentFactory>();
             builder.Services.AddSingleton<PropertiesOfDegreesFactory>();
             builder.Services.AddSingleton<PropertiesOfDegreesWith0andNegativeFactory>();
+            builder.Services.AddSingleton<CalculateRoot2And3Factory>();
 
             builder.Services.AddCors();
             builder.Services.AddControllers();

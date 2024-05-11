@@ -26,7 +26,14 @@ public class ExampleWithTwoArguments : Example
             case ActionType.Multiplication: return (Convert.ToDouble(_firstArg.GetExampleResult()) * Convert.ToDouble(_secondArg.GetExampleResult())).ToString();
             case ActionType.Division: return (Convert.ToDouble(_firstArg.GetExampleResult()) / Convert.ToDouble(_secondArg.GetExampleResult())).ToString();
             case ActionType.Exponentiation: return Math.Pow(Convert.ToDouble(_firstArg.GetExampleResult()), Convert.ToDouble(_secondArg.GetExampleResult())).ToString();
-            case ActionType.TakingRoot: return Math.Pow(Convert.ToDouble(_firstArg.GetExampleResult()), 1 / Convert.ToDouble(_secondArg.GetExampleResult())).ToString();
+            case ActionType.TakingRoot:
+                {
+                    double firstArg = Convert.ToDouble(_firstArg.GetExampleResult());
+                    double secondArg = Convert.ToDouble(_secondArg.GetExampleResult());
+                    if ((double)(int)firstArg == firstArg && ((int)firstArg % 2) == 1 && secondArg < 0)
+                        return (-Math.Pow(-Convert.ToDouble(_secondArg.GetExampleResult()), 1d / Convert.ToDouble(_firstArg.GetExampleResult()))).ToString();
+                    return Math.Pow(Convert.ToDouble(_secondArg.GetExampleResult()), 1d / Convert.ToDouble(_firstArg.GetExampleResult())).ToString();
+                }
             default: return "NAN";
         }
     }
