@@ -2,6 +2,7 @@
 using Microsoft.OpenApi.Models;
 using Monopoly_Unity_Game_Server.Model;
 using Monopoly_Unity_Game_Server.Model.QuestionFactories;
+using Monopoly_Unity_Game_Server.Model.QuestionFactories.DegreeQuestion;
 
 namespace Monopoly_Unity_Game_Server
 {
@@ -19,6 +20,7 @@ namespace Monopoly_Unity_Game_Server
             builder.Services.AddSingleton<CalculationArea_1>();
             builder.Services.AddSingleton<CalculationArea_2>();
             builder.Services.AddSingleton<CalculationArea_3>();
+            builder.Services.AddSingleton<DegreeWithNaturalExponentFactory>();
 
             builder.Services.AddCors();
             builder.Services.AddControllers();

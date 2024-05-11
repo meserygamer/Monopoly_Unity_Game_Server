@@ -5,9 +5,9 @@ using Monopoly_Unity_Game_Server.Model.QuestionFactories;
 namespace Monopoly_Unity_Game_Server.Controllers
 {
     [Route("FigureAreaEquation/")]
-    public class FigureAreaEquation : Controller
+    public class FigureAreaEquationController : Controller
     {
-        public FigureAreaEquation(CalculationArea_1 calculationArea_1, CalculationArea_2 calculationArea_2, CalculationArea_3 calculationArea_3) 
+        public FigureAreaEquationController(CalculationArea_1 calculationArea_1, CalculationArea_2 calculationArea_2, CalculationArea_3 calculationArea_3) 
         {
             _calculationArea_1 = calculationArea_1;
             _calculationArea_2 = calculationArea_2;
