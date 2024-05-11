@@ -1,5 +1,6 @@
 
 using Microsoft.OpenApi.Models;
+using Monopoly_Unity_Game_Server.Model;
 using Monopoly_Unity_Game_Server.Model.QuestionFactories;
 
 namespace Monopoly_Unity_Game_Server
@@ -15,6 +16,7 @@ namespace Monopoly_Unity_Game_Server
             builder.Services.AddSingleton<DoubleActionQuestionFactory>();
             builder.Services.AddSingleton<QuadraticEquationWithA1QuestionFactory>();
             builder.Services.AddSingleton<QuadraticEquationWithB0_C0Factory>();
+            builder.Services.AddSingleton<CalculationArea_1>();
 
             builder.Services.AddCors();
             builder.Services.AddControllers();
