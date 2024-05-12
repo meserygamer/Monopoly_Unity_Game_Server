@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Monopoly_Unity_Game_Server.Model;
-using Monopoly_Unity_Game_Server.Model.QuestionFactories;
 
 namespace Monopoly_Unity_Game_Server.Controllers
 {
