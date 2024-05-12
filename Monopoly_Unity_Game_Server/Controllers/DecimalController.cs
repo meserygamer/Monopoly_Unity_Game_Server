@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Monopoly_Unity_Game_Server.Model;
 using Monopoly_Unity_Game_Server.Model.QuestionFactories.DecimalExamples;
-using Monopoly_Unity_Game_Server.Model.QuestionFactories.OrdinaryFractions;
-using Monopoly_Unity_Game_Server.Model.QuestionFactories.RootQuestion;
 
 namespace Monopoly_Unity_Game_Server.Controllers
 {
@@ -11,15 +9,18 @@ namespace Monopoly_Unity_Game_Server.Controllers
     public class DecimalController : Controller
     {
         public DecimalController( DecimalSimpleExampleOfAddOrSubFactory decimalSimpleExampleOfAddOrSubFactory,
-                                  DecimalSimpleExampleOfMulOrDivFactory decimalSimpleExampleOfMulOrDivFactory )
+                                  DecimalSimpleExampleOfMulOrDivFactory decimalSimpleExampleOfMulOrDivFactory,
+                                  DecimalSimpleExampleWithTwoActionsFactory decimalSimpleExampleWithTwoActionsFactory )
         {
             _decimalSimpleExampleOfAddOrSubFactory = decimalSimpleExampleOfAddOrSubFactory;
             _decimalSimpleExampleOfMulOrDivFactory = decimalSimpleExampleOfMulOrDivFactory;
+            _decimalSimpleExampleWithTwoActionsFactory = decimalSimpleExampleWithTwoActionsFactory;
         }
 
 
         private DecimalSimpleExampleOfAddOrSubFactory _decimalSimpleExampleOfAddOrSubFactory;
         private DecimalSimpleExampleOfMulOrDivFactory _decimalSimpleExampleOfMulOrDivFactory;
+        private DecimalSimpleExampleWithTwoActionsFactory _decimalSimpleExampleWithTwoActionsFactory;
 
 
         [HttpGet]
@@ -35,6 +36,14 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample CalculateDecimalSimpleExampleOfMulOrDiv()
         {
             Question question = _decimalSimpleExampleOfMulOrDivFactory.GetQuestion();
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
+        }
+
+        [HttpGet]
+        [Route("DecimalSimpleExampleWithTwoActions")]
+        public GameSquareExample DecimalSimpleExampleWithTwoActions()
+        {
+            Question question = _decimalSimpleExampleWithTwoActionsFactory.GetQuestion();
             return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
         }
 
