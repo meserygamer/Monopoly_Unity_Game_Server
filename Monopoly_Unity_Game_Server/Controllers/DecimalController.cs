@@ -10,13 +10,16 @@ namespace Monopoly_Unity_Game_Server.Controllers
     [Route("Decimal/")]
     public class DecimalController : Controller
     {
-        public DecimalController( DecimalSimpleExampleOfAddOrSubFactory decimalSimpleExampleOfAddOrSubFactory )
+        public DecimalController( DecimalSimpleExampleOfAddOrSubFactory decimalSimpleExampleOfAddOrSubFactory,
+                                  DecimalSimpleExampleOfMulOrDivFactory decimalSimpleExampleOfMulOrDivFactory )
         {
             _decimalSimpleExampleOfAddOrSubFactory = decimalSimpleExampleOfAddOrSubFactory;
+            _decimalSimpleExampleOfMulOrDivFactory = decimalSimpleExampleOfMulOrDivFactory;
         }
 
 
         private DecimalSimpleExampleOfAddOrSubFactory _decimalSimpleExampleOfAddOrSubFactory;
+        private DecimalSimpleExampleOfMulOrDivFactory _decimalSimpleExampleOfMulOrDivFactory;
 
 
         [HttpGet]
@@ -24,6 +27,14 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample CalculateDecimalSimpleExampleOfAddOrSub() 
         {
             Question question = _decimalSimpleExampleOfAddOrSubFactory.GetQuestion();
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
+        }
+
+        [HttpGet]
+        [Route("CalculateDecimalSimpleExampleOfMulOrDiv")]
+        public GameSquareExample CalculateDecimalSimpleExampleOfMulOrDiv()
+        {
+            Question question = _decimalSimpleExampleOfMulOrDivFactory.GetQuestion();
             return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
         }
 

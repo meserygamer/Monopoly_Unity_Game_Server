@@ -32,6 +32,7 @@ namespace Monopoly_Unity_Game_Server
             builder.Services.AddSingleton<OrdinaryFractionsWithDifferentDenominatorsFactory>();
             builder.Services.AddSingleton<OrdinaryFractionsWithTwoActionsFactory>();
             builder.Services.AddSingleton<DecimalSimpleExampleOfAddOrSubFactory>();
+            builder.Services.AddSingleton<DecimalSimpleExampleOfMulOrDivFactory>();
 
             builder.Services.AddCors();
             builder.Services.AddControllers();
