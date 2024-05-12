@@ -17,6 +17,10 @@ public class ExampleWithTwoArguments : Example
     private ActionType _actionType;
 
 
+    public Example FirstArg { get => _firstArg; set => _firstArg = value; }
+    public Example SecondArg { get => _secondArg; set => _secondArg = value; }
+
+
     public override string GetExampleResult()
     {
         switch (_actionType)

@@ -1,7 +1,4 @@
-﻿using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace Monopoly_Unity_Game_Server.Model.QuestionFactories.OrdinaryFractions
+﻿namespace Monopoly_Unity_Game_Server.Model.QuestionFactories.OrdinaryFractions
 {
     public class OrdinaryFractionsWithDifferentDenominatorsFactory : IQuestionFactory
     {
