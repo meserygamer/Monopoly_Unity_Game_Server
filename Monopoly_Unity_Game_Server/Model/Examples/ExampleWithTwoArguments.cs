@@ -25,8 +25,8 @@ public class ExampleWithTwoArguments : Example
     {
         switch (_actionType)
         {
-            case ActionType.Addition: return (Convert.ToDouble(_firstArg.GetExampleResult()) + Convert.ToDouble(_secondArg.GetExampleResult())).ToString();
-            case ActionType.Subtraction: return (Convert.ToDouble(_firstArg.GetExampleResult()) - Convert.ToDouble(_secondArg.GetExampleResult())).ToString();
+            case ActionType.Addition: return Math.Round(Convert.ToDouble(_firstArg.GetExampleResult()) + Convert.ToDouble(_secondArg.GetExampleResult()), 3).ToString();
+            case ActionType.Subtraction: return Math.Round(Convert.ToDouble(_firstArg.GetExampleResult()) - Convert.ToDouble(_secondArg.GetExampleResult()), 3).ToString();
             case ActionType.Multiplication: return (Convert.ToDouble(_firstArg.GetExampleResult()) * Convert.ToDouble(_secondArg.GetExampleResult())).ToString();
             case ActionType.Division: return (Convert.ToDouble(_firstArg.GetExampleResult()) / Convert.ToDouble(_secondArg.GetExampleResult())).ToString();
             case ActionType.Exponentiation: return Math.Pow(Convert.ToDouble(_firstArg.GetExampleResult()), Convert.ToDouble(_secondArg.GetExampleResult())).ToString();
