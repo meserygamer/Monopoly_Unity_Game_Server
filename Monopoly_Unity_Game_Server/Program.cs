@@ -4,6 +4,7 @@ using Monopoly_Unity_Game_Server.Model;
 using Monopoly_Unity_Game_Server.Model.QuestionFactories;
 using Monopoly_Unity_Game_Server.Model.QuestionFactories.DecimalExamples;
 using Monopoly_Unity_Game_Server.Model.QuestionFactories.DegreeQuestion;
+using Monopoly_Unity_Game_Server.Model.QuestionFactories.FigureCharacteristics;
 using Monopoly_Unity_Game_Server.Model.QuestionFactories.OrdinaryFractions;
 using Monopoly_Unity_Game_Server.Model.QuestionFactories.RootQuestion;
 
@@ -34,6 +35,7 @@ namespace Monopoly_Unity_Game_Server
             builder.Services.AddSingleton<DecimalSimpleExampleOfAddOrSubFactory>();
             builder.Services.AddSingleton<DecimalSimpleExampleOfMulOrDivFactory>();
             builder.Services.AddSingleton<DecimalSimpleExampleWithTwoActionsFactory>();
+            builder.Services.AddSingleton<TriangleSquareRectangleCharacteristicsFactory>();
 
             builder.Services.AddCors();
             builder.Services.AddControllers();
