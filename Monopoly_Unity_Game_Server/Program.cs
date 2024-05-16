@@ -21,6 +21,7 @@ namespace Monopoly_Unity_Game_Server
             builder.Services.AddSingleton<DoubleActionQuestionFactory>();
             builder.Services.AddSingleton<QuadraticEquationWithA1QuestionFactory>();
             builder.Services.AddSingleton<QuadraticEquationWithB0_C0Factory>();
+            builder.Services.AddSingleton<QuadraticEquationWithANot0And1Factory>();
             builder.Services.AddSingleton<CalculationArea_1>();
             builder.Services.AddSingleton<CalculationArea_2>();
             builder.Services.AddSingleton<CalculationArea_3>();
