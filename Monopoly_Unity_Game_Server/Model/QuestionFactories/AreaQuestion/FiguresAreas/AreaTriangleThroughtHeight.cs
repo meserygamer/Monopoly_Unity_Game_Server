@@ -22,8 +22,8 @@ namespace Monopoly_Unity_Game_Server.Model.QuestionFactories.AreaQuestion.Figure
 
         public void GenerateFigure()
         {
-            _a = (double)_random.Next(0, 50) / 2;
-            _h = (double)_random.Next(0, 50) / 2;
+            _a = (double)_random.Next(1, 50) / 2;
+            _h = (double)_random.Next(1, 50) / 2;
         }
     }
 }
