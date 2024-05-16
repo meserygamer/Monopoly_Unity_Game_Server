@@ -24,14 +24,18 @@ public class DoubleActionQuestionFactory : IQuestionFactory
 
     public Example GetExample()
     {
-        ActionType exampleActionType = (ActionType)_random.Next(0, 4);
+        ActionType exampleActionType = (ActionType)_random.Next(0, 2);
         Example firstNumber  = new SingleActionQuestionFactory(_random).GetExample();
 
-        SimpleNumberAsExample secondNumber;
-        if (exampleActionType == ActionType.Addition || exampleActionType == ActionType.Subtraction)                        //Если числа складываются или вычитаются, то второе число 2 или 3 значное, иначе 1 значное
-            secondNumber = new SimpleNumberAsExample(_random.Next(10, 1000));
-        else
-            secondNumber = new SimpleNumberAsExample(_random.Next(1, 10));
+        SimpleNumberAsExample secondNumber = new SimpleNumberAsExample(_random.Next(10, 501));
         return new ExampleWithTwoArguments(firstNumber, secondNumber, exampleActionType);
+    }
+
+    private List<int> FindAllDivisioners(int number)
+    {
+        List<int> Divioners = new List<int>();
+        for (int i = 1; i * i <= Math.Abs(number); i++)
+            if (number % i == 0) Divioners.AddRange([i, number / i]);
+        return Divioners;
     }
 }
