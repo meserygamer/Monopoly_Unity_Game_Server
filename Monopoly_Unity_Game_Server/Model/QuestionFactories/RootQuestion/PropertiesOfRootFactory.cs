@@ -53,7 +53,7 @@ namespace Monopoly_Unity_Game_Server.Model.QuestionFactories.RootQuestion
         private List<int> FindAllDivisioners(int Number)
         {
             List<int> Divioners = new List<int>();
-            for (int i = 1; i * i < Number; i++)
+            for (int i = 1; i * i <= Math.Abs(Number); i++)
                 if (Number % i == 0) Divioners.AddRange([i, Number / i]);
             return Divioners;
         }
@@ -122,15 +122,29 @@ namespace Monopoly_Unity_Game_Server.Model.QuestionFactories.RootQuestion
 
             double aArgument = 0;
             double bArgument = 0;
+            List<int> aDivisioners;
             switch (exponent)
             {
                 case 2:
-                    aArgument = _listForSquareRoot[_random.Next(0, _listForSquareRoot.Count)];
-                    bArgument = _listForSquareRoot[_random.Next(0, _listForSquareRoot.Count)];
+                    do
+                    {
+                        aArgument = _listForSquareRoot[_random.Next(0, _listForSquareRoot.Count)];
+                        aDivisioners = FindAllDivisioners((int)Math.Round(Math.Pow(aArgument, 1d / 2d), 3));
+                    }
+                    while (aDivisioners.Count <= 2);
+                    bArgument = Math.Pow(aDivisioners[_random.Next(2, aDivisioners.Count)], 2);
                     break;
                 case 3:
-                    aArgument = _listForCubeRoot[_random.Next(0, _listForCubeRoot.Count)];
-                    bArgument = _listForCubeRoot[_random.Next(0, _listForCubeRoot.Count)];
+                    do
+                    {
+                        aArgument = _listForCubeRoot[_random.Next(0, _listForCubeRoot.Count)];
+                        if (aArgument < 0)
+                            aDivisioners = FindAllDivisioners((int)Math.Round(-Math.Pow(-aArgument, 1d / 3d), 3));
+                        else
+                            aDivisioners = FindAllDivisioners((int)Math.Round(Math.Pow(aArgument, 1d / 3d), 3));
+                    }
+                    while (aDivisioners.Count <= 2);
+                    bArgument = Math.Pow(aDivisioners[_random.Next(2, aDivisioners.Count)], 3);
                     break;
             }
 
@@ -172,7 +186,7 @@ namespace Monopoly_Unity_Game_Server.Model.QuestionFactories.RootQuestion
             Example exampleSecondPart = new ExampleWithTwoArguments(new SimpleNumberAsExample(exponent), new SimpleNumberAsExample(bArgument), ActionType.TakingRoot);
             Example exampleFinal = new ExampleWithTwoArguments(exampleFirstPart, exampleSecondPart, ActionType.Multiplication);
 
-            return new UserExample(Math.Pow(sumArguments, 1 / exponent), exampleFinal.ExampleInString());
+            return new UserExample(Math.Round(Math.Pow(sumArguments, 1 / exponent), 3), exampleFinal.ExampleInString());
         }
     }
 }
