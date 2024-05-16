@@ -23,7 +23,7 @@
         private List<int> FindAllDividers(int number)
         {
             List<int> dividers = new List<int>();
-            for (int i = 1; i * i < number; i++)
+            for (int i = 1; i * i <= number; i++)
                 if (number % i == 0) dividers.AddRange([i, number / i]);
             return dividers;
         }
