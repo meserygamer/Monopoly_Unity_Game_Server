@@ -8,13 +8,16 @@ namespace Monopoly_Unity_Game_Server.Controllers
     [Route("RootQuestion/")]
     public class FigureCharacteristicsController : Controller
     {
-        public FigureCharacteristicsController(TriangleSquareRectangleCharacteristicsFactory triangleSquareRectangleCharacteristicsFactory)
+        public FigureCharacteristicsController(TriangleSquareRectangleCharacteristicsFactory triangleSquareRectangleCharacteristicsFactory,
+            TrapezoidRhombusParallelogramCharacteristicsFactory trapezoidRhombusParallelogramCharacteristicsFactory)
         {
             _triangleSquareRectangleCharacteristicsFactory = triangleSquareRectangleCharacteristicsFactory;
+            _trapezoidRhombusParallelogramCharacteristicsFactory = trapezoidRhombusParallelogramCharacteristicsFactory;
         }
 
 
         private TriangleSquareRectangleCharacteristicsFactory _triangleSquareRectangleCharacteristicsFactory;
+        private TrapezoidRhombusParallelogramCharacteristicsFactory _trapezoidRhombusParallelogramCharacteristicsFactory;
 
 
         [HttpGet]
@@ -22,6 +25,14 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample CalculateTriangleSquareRectangleCharacteristics() 
         {
             Question question = _triangleSquareRectangleCharacteristicsFactory.GetQuestion();
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 10 };
+        }
+
+        [HttpGet]
+        [Route("CalculateTrapezoidRhombusParallelogramCharacteristics")]
+        public GameSquareExample CalculateTrapezoidRhombusParallelogramCharacteristics()
+        {
+            Question question = _trapezoidRhombusParallelogramCharacteristicsFactory.GetQuestion();
             return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 10 };
         }
 

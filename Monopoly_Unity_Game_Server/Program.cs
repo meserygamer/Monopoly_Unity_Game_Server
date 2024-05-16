@@ -36,6 +36,7 @@ namespace Monopoly_Unity_Game_Server
             builder.Services.AddSingleton<DecimalSimpleExampleOfMulOrDivFactory>();
             builder.Services.AddSingleton<DecimalSimpleExampleWithTwoActionsFactory>();
             builder.Services.AddSingleton<TriangleSquareRectangleCharacteristicsFactory>();
+            builder.Services.AddSingleton<TrapezoidRhombusParallelogramCharacteristicsFactory>();
 
             builder.Services.AddCors();
             builder.Services.AddControllers();
