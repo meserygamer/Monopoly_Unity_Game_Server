@@ -37,7 +37,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample CalculateOrdinaryFractionsWithDifferentDenominators()
         {
             Question question = _ordinaryFractionsWithDiffentDenominatorsFactory.GetQuestion();
-            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 25 };
         }
 
         [HttpGet]
@@ -45,7 +45,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample CalculateOrdinaryFractionsWithTwoActions()
         {
             Question question = _ordinaryFractionsWithTwoActionsFactory.GetQuestion();
-            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 35 };
         }
 
     }

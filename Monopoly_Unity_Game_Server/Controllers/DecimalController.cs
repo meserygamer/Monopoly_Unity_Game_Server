@@ -44,7 +44,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample DecimalSimpleExampleWithTwoActions()
         {
             Question question = _decimalSimpleExampleWithTwoActionsFactory.GetQuestion();
-            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 35 };
         }
 
     }

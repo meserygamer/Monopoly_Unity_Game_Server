@@ -27,7 +27,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample GenerateQuadraticEquationWithA1Question()
         {
             Question question = _quadraticEquationWithA1QuestionFactory.GetQuestion();
-            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 30 };
         }
 
         [HttpGet]
@@ -35,7 +35,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample QuadraticEquationWithB0_orC0Question()
         {
             Question question = _quadraticEquationWithB0_C0Factory.GetQuestion();
-            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 30 };
         }
 
         [HttpGet]
@@ -43,7 +43,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample QuadraticEquationWithANot0And1Question()
         {
             Question question = _quadraticEquationWithANot0And1Factory.GetQuestion();
-            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 30 };
         }
     }
 }

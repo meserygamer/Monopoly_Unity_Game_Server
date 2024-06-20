@@ -10,7 +10,7 @@ namespace Monopoly_Unity_Game_Server.Model.QuestionFactories.AreaQuestion.Figure
         }
 
         private readonly int[] POSSIBLE_ANGLES = [30, 60, 45];
-        private readonly Dictionary<int, string> angleSquare = new Dictionary<int, string>() { { 30, "" }, { 45, "2^(1/4)" }, { 60, "3^(1/4)" } };
+        private readonly Dictionary<int, string> angleSquare = new Dictionary<int, string>() { { 30, "" }, { 45, " * 2^(1/4)" }, { 60, " * 3^(1/4)" } };
 
 
         private Random _random;
@@ -21,7 +21,7 @@ namespace Monopoly_Unity_Game_Server.Model.QuestionFactories.AreaQuestion.Figure
 
 
         public string QuestionText => 
-            $"Найдите площадь ромба, если сторона a1 = {_a1} * {angleSquare[(int)_alphaAngle]}, сторона a2 = {_a1} * {angleSquare[(int)_alphaAngle]}, а угол между ними alpha = " + _alphaAngle + "°";
+            $"Найдите площадь ромба, если сторона a1 = {_a1}{angleSquare[(int)_alphaAngle]}, сторона a2 = {_a1}{angleSquare[(int)_alphaAngle]}, а угол между ними alpha = " + _alphaAngle + "°";
 
         public double FigureArea => Math.Pow(_a1, 2) * _multiplicator;
 

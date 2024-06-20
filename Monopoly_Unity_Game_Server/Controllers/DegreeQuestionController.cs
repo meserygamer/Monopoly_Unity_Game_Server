@@ -35,7 +35,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample CalculateDegreeProperties()
         {
             Question question = _propertiesOfDegreesFactory.GetQuestion();
-            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 15 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
         }
 
         [HttpGet]
@@ -43,7 +43,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample CalculateDegreeWith0andNegativeExponentProperties()
         {
             Question question = _propertiesOfDegreesWith0AndNegativeFactory.GetQuestion();
-            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 15 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
         }
     }
 }

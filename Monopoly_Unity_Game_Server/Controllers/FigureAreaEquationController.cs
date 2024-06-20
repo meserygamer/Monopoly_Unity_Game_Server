@@ -24,7 +24,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample GenerateArea_1Question()
         {
             Question question = _calculationArea_1.GetQuestion();
-            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 10 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 20 };
         }
 
         [HttpGet]
@@ -32,7 +32,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample GenerateArea_2Question()
         {
             Question question = _calculationArea_2.GetQuestion();
-            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 10 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 25 };
         }
 
         [HttpGet]
@@ -40,7 +40,7 @@ namespace Monopoly_Unity_Game_Server.Controllers
         public GameSquareExample GenerateArea_3Question()
         {
             Question question = _calculationArea_3.GetQuestion();
-            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 10 };
+            return new GameSquareExample() { Question = question, DefaultTimeForAnswerInSecond = 30 };
         }
     }
 }
